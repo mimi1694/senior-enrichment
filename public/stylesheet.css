@@ -1,0 +1,22 @@
+nav {
+    position: fixed;
+    top: 0;
+    height: 2em;
+    width: 100%;
+    background-color: gray;
+    border-bottom: darkgray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#navigation {
+    display: flex;
+    flex-direction: row;
+    background-color: pink;
+    align-self: flex-end;
+}
+
+.content {
+    margin-top:2em;
+}

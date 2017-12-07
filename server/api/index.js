@@ -8,5 +8,11 @@ const db = require('../db')
 apiRouter.get('/hello', (req, res) => res.send({hello: 'world'}))
 
 // You can put all routes in this file; HOWEVER, this file should almost be like a table of contents for the routers you create
+apiRouter.use('/campuses', require('./campuses'));
+apiRouter.use('/students', require('./students'));
+
+apiRouter.use(function (req, res) {
+	res.status(404).end();
+  });
 
 module.exports = apiRouter;
