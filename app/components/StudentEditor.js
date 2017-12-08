@@ -28,10 +28,8 @@ const mapDispatchToProps = function (dispatch, ownProps) {
             return dispatch(campusIdEntry(event.target.value))
         },
         handleSubmit: function (event) {
-            event.preventDefault();
           event.preventDefault();
           const uneditedStudent = Object.assign({}, ownProps.props.students[0])
-          console.log('UNEDITED STUDENT' ,uneditedStudent)
           const formInput = Object.assign({}, store.getState().studentadder);
           const editedStudent = {};
           for(var key in formInput){

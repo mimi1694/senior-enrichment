@@ -11,5 +11,9 @@ module.exports = db.define('campus', {
     imageUrl: {
         type: Sequelize.STRING,
         defaultValue: defaultUrl
+    },
+    description: {
+      type: Sequelize.TEXT,
+      allowNull:true
     }
   });

@@ -97,9 +97,6 @@ export default function newStudentEntryReducer (state = initialState, action) {
         state.campusId = action.id
         return state
     case UPDATE_STUDENT:
-    //need to make a shallow copy and replace
-        //const shallow = state.map(()=>)
-        console.log('UPDATING THE STUDENTADDER STATE')
         state = action.student
         return state
     default:

@@ -17,7 +17,7 @@ function mapDispatchProps (dispatch, ownProps){
         handleClick: function(event){
             event.preventDefault();
             dispatch(deleteStudentFromDB(event.target.value))
-            //dispatch(fetchStudents())
+            dispatch(fetchStudents())
         }
     }
 }

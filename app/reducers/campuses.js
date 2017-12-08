@@ -29,18 +29,16 @@ export function fetchCampuses(){
         });
     }
 }
-
-export function postCampus(campus){
+export function fetchOneCampus(campusid){
     return function thunk (dispatch) {
-        return axios.post('api/campuses', campus)
-        .then(res=>res.data)
-        .then(newCampus => {
-            const action = getOneCampus(newCampus);
-            dispatch(action);
+        return axios.get(`/api/campuses/${campusid}`)
+        .then(res=>{return res.data})
+        .then(campus => {
+            const action = getCampuses(campus)
+            dispatch(action)
         })
     }
 }
-
 //REDUCER
 export default function campusesReducer (state=[], action) {
     switch(action.type){

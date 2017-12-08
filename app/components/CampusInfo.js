@@ -5,6 +5,7 @@ import store, { fetchCampuses, fetchStudents, fetchCampusStudents } from '../sto
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import StudentTable from './StudentTable'
+import CampusEditor from './CampusEditor'
 
 function mapStateProps(state) {
     return {
@@ -39,6 +40,8 @@ export class CampusInfo extends Component {
                     <div><h2>{`Welcome to the ${campus.name} Campus!`}</h2>
                     <StudentTable />
                 </div>}
+                <br/>
+                <CampusEditor props={this.props}/>
             </div>
         )
     }
