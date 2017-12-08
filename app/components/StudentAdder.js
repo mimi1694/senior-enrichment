@@ -10,7 +10,6 @@ import store, { writeStudentEntry,
                 postStudent } from '../store'
 
 function findCampus(campusName){
-    console.log(campusName)
     for(var i =0; i<store.getState().campuses.length; i++){
         if(store.getState().campuses[i].name==campusName){
             if(store.getState().campuses[i].id){
@@ -26,7 +25,6 @@ function findCampus(campusName){
 const mapDispatchToProps = function (dispatch, ownProps) {
   return {
     handleFirstNameChange: function (event) {
-        console.log(event.target)
         return dispatch(firstnameEntry(event.target.value))
     },
     handleLastNameChange: function(event) {
@@ -36,7 +34,6 @@ const mapDispatchToProps = function (dispatch, ownProps) {
         return dispatch(emailEntry(event.target.value))
     },
     handleGPAChange: function(event) {
-        console.log(ownProps.props)
         return dispatch(gpaEntry(event.target.value))
     },
     handleCampusId: function(event) {
@@ -54,11 +51,9 @@ const mapDispatchToProps = function (dispatch, ownProps) {
     handleSubmit: function (event) {
       event.preventDefault();
       const student = Object.assign({}, store.getState().studentadder);
-     // ownProps.props.history.push('/',Object.assign({}, store.getState()));
       dispatch(postStudent(student))
       dispatch(writeStudentEntry({firstName: '', lastName:'', email:'', gpa:0, campusId:1}))
       dispatch(fetchStudents())
-      
     }
   }
 }

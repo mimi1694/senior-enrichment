@@ -4,6 +4,7 @@ import store, {fetchCampusStudents} from '../store';
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 import { Link } from 'react-router-dom';
+import CampusEditor from './CampusEditor'
 
 function mapStateProps (state){
     return{
@@ -27,6 +28,7 @@ export class CampusPage extends Component {
                         )
                     })}
                 </section>
+                <CampusEditor />
             </div>
     )}
 };

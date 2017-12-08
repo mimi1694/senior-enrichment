@@ -6,6 +6,8 @@ import store, { writeStudentEntry,
     emailEntry, 
     gpaEntry,
     campusIdEntry,
+    putUpdatedStudentOnState,
+    fetchOneStudent,
     editStudent } from '../store'
 
 const mapDispatchToProps = function (dispatch, ownProps) {
@@ -27,25 +29,53 @@ const mapDispatchToProps = function (dispatch, ownProps) {
         },
         handleSubmit: function (event) {
           event.preventDefault();
-          const studentEdit = Object.assign({}, store.getState().studentadder);
-          const editInput = {};
-          for(var key in studentEdit){
-              if(studentEdit.hasOwnProperty(key)){
+          const uneditedStudent = Object.assign({}, store.getState.students[0])
+          const formInput = Object.assign({}, store.getState().studentadder);
+          const editedStudent = {};
+          for(var key in formInput){
+              if(formInput.hasOwnProperty(key)){
                   switch (key){
-                    case 'firstName' || 'lastName' || 'email' || 'campusId':
-                        editInput[key] = studentEdit[key]
-                    case 'gpa':
-                        if(studentEdit[key]!=0){
-                            editInput[key] = studentEdit[key]//this is the default
+                    case 'firstName':
+                        if(formInput[key].length){
+                            editedStudent[key] = formInput[key]
                         }
-                    default:
-                        //return store.getState().students[props.props.match.params.studentid]
+                        else{
+                            editedStudent[key] = uneditedStudent[key]
+                        }
+                    case 'lastName':
+                        if(formInput[key].length){
+                            editedStudent[key] = formInput[key]
+                        }
+                        else{
+                            editedStudent[key] = uneditedStudent[key]
+                        }
+                    case 'email':
+                        if(formInput[key].length){
+                            editedStudent[key] = formInput[key]
+                        }
+                        else{
+                            editedStudent[key] = uneditedStudent[key]
+                        }
+                    case 'campusId':
+                            if(formInput[key]!='1') editedStudent[key] = formInput[key]
+                            else editedStudent[key] = '1'
+                    case 'gpa':
+                        if(formInput[key]!='0'){
+                            editedStudent[key] = formInput[key]
+                        }
+                        else{
+                            editedStudent[key] = uneditedStudent[key]
+                        }
                   }
               }
-          }
-          console.log(ownProps.props)
-          dispatch(editStudent(editInput, ownProps.props.match.params.studentid))
-          dispatch(writeStudentEntry({firstName: '', lastName:'', email:'', gpa:0}))
+          }console.log('EDITED STUDENT:',editedStudent)
+
+
+        //   dispatch(editStudent(editedStudent, ownProps.props.match.params.studentid)) 
+        //   dispatch(putUpdatedStudentOnState(Object.assign({},store.getState().studentadder)))
+          
+        //   dispatch(writeStudentEntry({firstName: '', lastName:'', email:'', gpa:0}))
+        //   dispatch(fetchOneStudent(ownProps.props.match.params.studentid))
         }
       }
 }

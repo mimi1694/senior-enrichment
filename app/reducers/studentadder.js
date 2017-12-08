@@ -55,7 +55,7 @@ export function updateStudent (student){
 
 export function postStudent(student){
     return function thunk (dispatch) {
-        return axios.post('api/students', student)
+        return axios.post('/api/students', student)
         .then(res=>res.data)
         .then(newStudent => {
             const action = recieveStudentEntry(newStudent);
@@ -78,7 +78,7 @@ export function editStudent(studentInfo, id){
 export default function newStudentEntryReducer (state = initialState, action) {
     switch (action.type) {
     case WRITE_STUDENT_ENTRY:
-        return  initialState;
+        return  action.student;
     case RECIEVE_STUDENT_ENTRY:
         return [...state, action.student];
     case FIRSTNAME_ENTRY:
@@ -99,6 +99,7 @@ export default function newStudentEntryReducer (state = initialState, action) {
     case UPDATE_STUDENT:
     //need to make a shallow copy and replace
         //const shallow = state.map(()=>)
+        console.log('UPDATING THE STUDENTADDER STATE')
         state = action.student
         return state
     default:

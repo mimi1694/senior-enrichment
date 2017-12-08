@@ -7,6 +7,7 @@ import thunkMiddleware from 'redux-thunk';
 const GET_STUDENTS = 'GET_STUDENTS';
 const GET_ONE_STUDENT = 'GET_ONE_STUDENT';
 const GET_CAMPUS_STUDENTS = 'GET_CAMPUS_STUDENTS';
+const PUT_UPDATED_STUDENT_ON_STATE = 'PUT_UPDATED_STUDENT_ON_STATE'
 
 //ACTION CREATORS
 export function getStudents (students) {
@@ -15,6 +16,10 @@ export function getStudents (students) {
 }
 export function getCampusStudents (students) {
     const action = {type: GET_CAMPUS_STUDENTS, students};
+    return action;
+}
+export function putUpdatedStudentOnState(student){
+    const action = {type: PUT_UPDATED_STUDENT_ON_STATE, student};
     return action;
 }
 
@@ -49,6 +54,7 @@ export function fetchOneStudent(studentid){
         })
     }
 }
+
 //REDUCER
 export default function studentsReducer (state=[], action) {
     switch(action.type){
@@ -56,6 +62,9 @@ export default function studentsReducer (state=[], action) {
             return action.students;
         case GET_CAMPUS_STUDENTS:
             return action.students;
+        case PUT_UPDATED_STUDENT_ON_STATE:
+            console.log('PUTTING UPDATED STUDENT ON THE STUDENTS ARRAY',state.students)
+            return [...state, action.student]
         default:
             return state;
     }
