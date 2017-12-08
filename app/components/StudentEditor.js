@@ -68,7 +68,8 @@ const mapDispatchToProps = function (dispatch, ownProps) {
                         }
                   }
               }
-          }console.log('EDITED STUDENT:',editedStudent)
+          }
+          console.log('EDITED STUDENT:',editedStudent)
 
 
         //   dispatch(editStudent(editedStudent, ownProps.props.match.params.studentid)) 

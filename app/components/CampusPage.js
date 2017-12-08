@@ -8,7 +8,8 @@ import CampusEditor from './CampusEditor'
 
 function mapStateProps (state){
     return{
-        campuses: state.campuses
+        campuses: state.campuses,
+        students: state.students
     }
 }
 
@@ -16,6 +17,7 @@ function mapStateProps (state){
 export class CampusPage extends Component {
 
     render() {
+        console.log(this.props)
         return (
             <div className='content'>
                 <h2>Our Campuses</h2>
