@@ -78,7 +78,7 @@ export function editStudent(studentInfo, id){
 export default function newStudentEntryReducer (state = initialState, action) {
     switch (action.type) {
     case WRITE_STUDENT_ENTRY:
-        return  action.student;
+        return  state;
     case RECIEVE_STUDENT_ENTRY:
         return [...state, action.student];
     case FIRSTNAME_ENTRY:
