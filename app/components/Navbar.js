@@ -6,7 +6,8 @@ export default class Navbar extends Component {
   render () {
     return (
       <nav>
-        <h3>Welcome to School!</h3>
+        <h3 id='title'>Welcome to School!</h3>
+        <div id='mini'>
         <section>
         <h4 className="navigation">
             <Link to="/home">HOME</Link>
@@ -22,6 +23,7 @@ export default class Navbar extends Component {
             <Link to="/students">STUDENTS</Link>
         </h4>
     </section>
+    </div>
       </nav>    
     );
   }

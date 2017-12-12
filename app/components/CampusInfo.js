@@ -15,7 +15,6 @@ function mapStateProps(state) {
 }
 
 function mapDispatchProps(state, ownProps) {
-    console.log('we\'re dispatching!', ownProps)
     return {
         fetchCampusStudents
     }
@@ -38,6 +37,7 @@ export class CampusInfo extends Component {
             <div className='content'>
                 {campus &&
                     <div><h2>{`Welcome to the ${campus.name} Campus!`}</h2>
+                    <p>About us: {campus.description}</p>
                     <StudentTable />
                 </div>}
                 <br/>

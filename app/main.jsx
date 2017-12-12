@@ -9,7 +9,7 @@ import store from './store.js'
 import Root from './components/Root'
 
 render (
-  <Provider store={store}>
+  <Provider store={store} >
     <Router>
       <Root/>
     </Router>

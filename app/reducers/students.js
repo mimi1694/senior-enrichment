@@ -8,7 +8,7 @@ const GET_STUDENTS = 'GET_STUDENTS';
 const GET_ONE_STUDENT = 'GET_ONE_STUDENT';
 const GET_CAMPUS_STUDENTS = 'GET_CAMPUS_STUDENTS';
 const PUT_UPDATED_STUDENT_ON_STATE = 'PUT_UPDATED_STUDENT_ON_STATE';
-// const DELETE_STUDENT = 'DELETE_STUDENT';
+
 //ACTION CREATORS
 export function getStudents (students) {
     const action = { type: GET_STUDENTS, students };
@@ -22,10 +22,6 @@ export function putUpdatedStudentOnState(student){
     const action = {type: PUT_UPDATED_STUDENT_ON_STATE, student};
     return action;
 }
-// export function deleteStudent(student){
-//     const action = {type:DELETE_STUDENT, student};
-//     return action;
-// }
 
 //THUNK CREATORS
 export function fetchStudents(){
@@ -80,9 +76,6 @@ export default function studentsReducer (state=[], action) {
             return action.students;
         case PUT_UPDATED_STUDENT_ON_STATE:
             return [...state, action.student]
-        // case DELETE_STUDENT:
-
-        //     return action.student;
         default:
             return state;
     }

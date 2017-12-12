@@ -32,7 +32,6 @@ export class StudentPage extends Component {
 
     render() {
         const currentStudent = this.props.students[0]
-        //console.log('CURRENT PROPS',this.props)
         return (
             <div className='content'>
             {currentStudent && <h3>{`${currentStudent.fullName}`}</h3>}

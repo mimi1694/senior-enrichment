@@ -7,19 +7,23 @@ const defaultImage = 'http://www.hwslakeview.com/wp-content/uploads/2015/12/1916
 const campuses = [
     {
         name: 'New York City',
-        imageUrl: defaultImage
+        imageUrl: defaultImage,
+        description: 'We are the best campus!'
     },
     {
         name: 'Ithaca',
-        imageUrl: defaultImage
+        imageUrl: defaultImage,
+        description: 'We are the best campus!'
     },
     {
         name: 'Los Angeles',
-        imageUrl: defaultImage
+        imageUrl: defaultImage,
+        description: 'We are the best campus!'
     },
     {
         name: 'Chicago',
-        imageUrl: defaultImage
+        imageUrl: defaultImage,
+        description: 'We are the best campus!'
     }
 ]
 
